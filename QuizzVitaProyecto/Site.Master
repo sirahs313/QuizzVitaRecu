@@ -9,7 +9,7 @@
     <title><%: Page.Title %> - QuizzVita</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -223,11 +223,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager runat="server" EnablePageMethods="true">
+       
+        <asp:ScriptManager runat="server">
             <Scripts>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/jquery-3.7.1.min.js" />
             </Scripts>
         </asp:ScriptManager>
 
