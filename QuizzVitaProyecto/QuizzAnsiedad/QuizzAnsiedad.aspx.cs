@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Collections.Generic;
 
-namespace QuizzVitaProyecto.QuizzDepresion
+namespace QuizzVitaProyecto.QuizzAnsiedad
 {
-    public partial class WebForm1 : Page
+    public partial class QuizzAnsiedad : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
         protected void SubmitQuiz(object sender, EventArgs e)
         {
@@ -27,21 +30,19 @@ namespace QuizzVitaProyecto.QuizzDepresion
             string diagnosis = "";
             if (totalScore <= 10) // Ajusta estos valores según la cantidad de preguntas
             {
-                diagnosis = "Estrés Bajo";
+                diagnosis = "Ansiedad Baja";
             }
             else if (totalScore <= 20)
             {
-                diagnosis = "Estrés Moderado";
+                diagnosis = "Ansiedad Moderada";
             }
             else
             {
-                diagnosis = "Estrés Severo";
+                diagnosis = "Ansiedad Severa";
             }
 
             // Redirigir a la página de resultados con el diagnóstico
-            Response.Redirect($"Res.aspx?diagnosis={diagnosis}&score={totalScore}");
+            Response.Redirect($"ResAns.aspx?diagnosis={diagnosis}&score={totalScore}");
         }
     }
-
-  
 }

@@ -257,11 +257,13 @@
     <Content Include="Principal\img\menu.png" />
     <Content Include="Principal\img\Quizz.png" />
     <Content Include="Principal\img\reg.png" />
-    <Content Include="QuizzAnsiedad\QAnsiedad.aspx" />
+    <Content Include="QuizzAnsiedad\QuizzAnsiedad.aspx" />
+    <Content Include="QuizzAnsiedad\Res.aspx" />
     <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
     <Content Include="QuizzDepresion\Depresion.aspx" />
+    <Content Include="QuizzDepresion\Res.aspx" />
     <Content Include="QuizzEstres\Res.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Account\Web.config" />
@@ -487,12 +489,19 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.cs">
-      <DependentUpon>QAnsiedad.aspx</DependentUpon>
+    <Compile Include="QuizzAnsiedad\QuizzAnsiedad.aspx.cs">
+      <DependentUpon>QuizzAnsiedad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="QuizzAnsiedad\QAnsiedad.aspx.designer.cs">
-      <DependentUpon>QAnsiedad.aspx</DependentUpon>
+    <Compile Include="QuizzAnsiedad\QuizzAnsiedad.aspx.designer.cs">
+      <DependentUpon>QuizzAnsiedad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzAnsiedad\Res.aspx.cs">
+      <DependentUpon>Res.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzAnsiedad\Res.aspx.designer.cs">
+      <DependentUpon>Res.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzDepresion\Depresion.aspx.cs">
       <DependentUpon>Depresion.aspx</DependentUpon>
@@ -500,6 +509,13 @@
     </Compile>
     <Compile Include="QuizzDepresion\Depresion.aspx.designer.cs">
       <DependentUpon>Depresion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzDepresion\Res.aspx.cs">
+      <DependentUpon>Res.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzDepresion\Res.aspx.designer.cs">
+      <DependentUpon>Res.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
@@ -548,7 +564,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="NewFolder1\" />
+    <Folder Include="QE\" />
     <Folder Include="Views\Registro\" />
   </ItemGroup>
   <ItemGroup>

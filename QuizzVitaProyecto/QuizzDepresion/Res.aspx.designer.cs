@@ -11,7 +11,7 @@ namespace QuizzVitaProyecto.QuizzDepresion
 {
 
 
-    public partial class WebForm1
+    public partial class Res
     {
 
         /// <summary>
