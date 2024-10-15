@@ -142,8 +142,8 @@
         </div>        
         <div id="sideMenu" class="side-menu">
     <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-    <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
-    <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
+    <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
+    <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
     <a href="/QuizzEstres/Estres.aspx">Estrés</a>
     <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
 
