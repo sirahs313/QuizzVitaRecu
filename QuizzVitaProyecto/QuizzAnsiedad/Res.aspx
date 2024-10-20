@@ -239,6 +239,25 @@
     </div>
 </div>
 
+<div id="infoespecModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Consejos para manejar la Ansiedad</h2>
+        <h3>Practica la escritura terapéutica:</h3>
+        <ul>
+            <li>Llevar un diario donde escribas tus pensamientos y preocupaciones para ayudarte a liberar la tensión.</li>
+        </ul>
+        <h3>Limitar el consumo de cafeína y azúcar:</h3>
+        <ul>
+            <li>Estos estimulantes pueden aumentar los síntomas de ansiedad, como el nerviosismo y la inquietud.</li>
+        </ul>
+        <h3>Haz una pausa sensorial:</h3>
+        <ul>
+            <li>Cuando sientas que la ansiedad aumenta, tómate un momento para concentrarte en tus cinco sentidos. Por ejemplo, puedes mirar algo agradable, oler una fragancia relajante, etc.</li>
+        </ul>
+    </div>
+</div>
+
 <body>
     <form id="form1" runat="server">
         <div class="top-bar">
@@ -327,5 +346,23 @@
               }
           }
       </script>
+    <script>
+        var modal2 = document.getElementById("infoespecModal");
+        var buttons = document.querySelectorAll(".buttons button");
+        var btn = buttons[1];
+        var span = document.getElementsByClassName("close")[1];
+        btn.onclick = function () {
+            modal2.style.display = "block";
+        }
+        span.onclick = function () {
+            modal2.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+    </script>
 </body>
 </html>

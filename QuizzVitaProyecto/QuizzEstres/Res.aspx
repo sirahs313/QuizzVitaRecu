@@ -238,6 +238,24 @@
         </ul>
     </div>
 </div>
+    <div id="infoespecModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Consejos para manejar el Estrés</h2>
+        <h3>Practica la respiración profunda:</h3>
+        <ul>
+            <li>Al centrarte en tu respiración, puedes reducir el ritmo cardíaco y promover un estado de calma. Intenta inhalar lentamente durante cuatro segundos, retener la respiración durante cuatro, y exhalar durante otros cuatro.</li>
+        </ul>
+        <h3>Ejercicio físico regular:</h3>
+        <ul>
+            <li>El ejercicio libera endorfinas, que son sustancias químicas en el cerebro que actúan como analgésicos naturales y mejoran el estado de ánimo.</li>
+        </ul>
+        <h3>Técnicas de mindfulness:</h3>
+        <ul>
+            <li>La atención plena o "mindfulness" te ayuda a vivir el momento presente sin preocuparte por el futuro o arrepentirte del pasado. Dedicar unos minutos diarios a meditar o a hacer actividades conscientes, como caminar o comer.</li>
+        </ul>
+    </div>
+</div>
 <body>
     <form id="form1" runat="server">
       <div class="top-bar">
@@ -324,6 +342,24 @@
               }
           }
       </script>
+    <script>
+        var modal2 = document.getElementById("infoespecModal");
+        var buttons = document.querySelectorAll(".buttons button");
+        var btn = buttons[1];
+        var span = document.getElementsByClassName("close")[1];
+        btn.onclick = function () {
+            modal2.style.display = "block";
+        }
+        span.onclick = function () {
+            modal2.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+    </script>
 </body>
 </html>
 

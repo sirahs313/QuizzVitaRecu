@@ -245,7 +245,24 @@
 </div>
 
 
-
+<div id="infoespecModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Consejos para manejar la depresión</h2>
+        <h3>Habar con alguien de confianza</h3>
+        <ul>
+            <li>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
+        </ul>
+        <h3>Manten una rutina diaria</h3>
+        <ul>
+            <li>Establecer y seguir una rutina puede proporcionar estructura y normalidad, lo cual es crucial para manejar la depresión.</li>
+        </ul>
+        <h3>Realiza actividad fisica</h3>
+        <ul>
+            <li>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
+        </ul>
+    </div>
+</div>
 
 <body>
     <form id="form1" runat="server">
@@ -312,7 +329,7 @@
     <script>
         // Obtener el modal
         var modal = document.getElementById("infoModal");
-
+        
         // Obtener el botón que abre el modal
         var btn = document.querySelector(".buttons button"); // Suponiendo que el botón "Acerca de tus resultados" es el primero
 
@@ -336,7 +353,24 @@
             }
         }
     </script>
+    <script>
+        var modal2 = document.getElementById("infoespecModal");
+        var buttons = document.querySelectorAll(".buttons button");
+        var btn = buttons[1];
+        var span = document.getElementsByClassName("close")[1];
+        btn.onclick = function () {
+            modal2.style.display = "block";
+        }
+        span.onclick = function () {
+            modal2.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
 
+    </script>
 
 
 </body>
