@@ -331,7 +331,7 @@
                  <label for="q10_op4">Muy frecuentemente</label>
              </div>
          </div>
-            <button type="submit" runat="server" onserverclick="SubmitQuiz">Enviar respuestas</button>
+          <button type="submit" runat="server" id="btnEnviarRespuestas" onserverclick="SubmitQuiz">Enviar respuestas</button>
         </div>
     </form>
     <script>

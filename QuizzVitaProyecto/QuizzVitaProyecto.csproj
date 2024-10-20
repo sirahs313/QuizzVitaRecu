@@ -259,12 +259,15 @@
     <Content Include="Principal\img\reg.png" />
     <Content Include="QuizzAnsiedad\QuizzAnsiedad.aspx" />
     <Content Include="QuizzAnsiedad\Res.aspx" />
+    <Content Include="QuizzAnsiedad\respuestasAnsiedad.aspx" />
     <Content Include="QuizzDepresion\Imagenes\casainicio.png" />
     <Content Include="QuizzDepresion\Imagenes\opcionesin.png" />
     <Content Include="QuizzDepresion\Imagenes\perdil.png" />
     <Content Include="QuizzDepresion\Depresion.aspx" />
     <Content Include="QuizzDepresion\Res.aspx" />
+    <Content Include="QuizzDepresion\respuestasDepresion.aspx" />
     <Content Include="QuizzEstres\Res.aspx" />
+    <Content Include="QuizzEstres\respuestasEstres.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Account\Web.config" />
     <Content Include="QuizzEstres\Estres.aspx" />
@@ -503,6 +506,13 @@
     <Compile Include="QuizzAnsiedad\Res.aspx.designer.cs">
       <DependentUpon>Res.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuizzAnsiedad\respuestasAnsiedad.aspx.cs">
+      <DependentUpon>respuestasAnsiedad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzAnsiedad\respuestasAnsiedad.aspx.designer.cs">
+      <DependentUpon>respuestasAnsiedad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="QuizzDepresion\Depresion.aspx.cs">
       <DependentUpon>Depresion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,12 +527,26 @@
     <Compile Include="QuizzDepresion\Res.aspx.designer.cs">
       <DependentUpon>Res.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuizzDepresion\respuestasDepresion.aspx.cs">
+      <DependentUpon>respuestasDepresion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzDepresion\respuestasDepresion.aspx.designer.cs">
+      <DependentUpon>respuestasDepresion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="QuizzEstres\Res.aspx.cs">
       <DependentUpon>Res.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="QuizzEstres\Res.aspx.designer.cs">
       <DependentUpon>Res.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzEstres\respuestasEstres.aspx.cs">
+      <DependentUpon>respuestasEstres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizzEstres\respuestasEstres.aspx.designer.cs">
+      <DependentUpon>respuestasEstres.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>

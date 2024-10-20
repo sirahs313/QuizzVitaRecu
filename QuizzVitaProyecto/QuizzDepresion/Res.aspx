@@ -185,7 +185,7 @@
                 <div class="buttons">
                     <button type="button">Acerca de tus resultados</button>
                     <button type="button">Consejos para manejar tu depresión</button>
-                    <button type="button">Tus respuestas</button>
+                    <button type="button" onclick="location.href='respuestasDepresion.aspx';">Tus respuestas</button>
                     <button type="button" id="openMenuButton">Realizar otro quizz</button>
                 </div>
             </div>

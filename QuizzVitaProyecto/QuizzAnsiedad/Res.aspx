@@ -186,7 +186,7 @@
                 <div class="buttons">
                     <button type="button">Acerca de tus resultados</button>
                     <button type="button">Consejos para manejar tu ansiedad</button>
-                    <button type="button">Tus respuestas</button>
+                    <button type="button" onclick="location.href='respuestasAnsiedad.aspx';">Tus respuestas</button>
                     <button type="button" id="openMenuButton">Realizar otro quizz</button>
                 </div>
             </div>
@@ -210,6 +210,8 @@
         document.getElementById("menuButton").onclick = openMenu;
         document.getElementById("closeMenu").onclick = closeMenu;
         document.getElementById("openMenuButton").onclick = openMenu;
+
+        
     </script>
 </body>
 </html>
