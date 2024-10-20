@@ -7,6 +7,78 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Resultados del Quizz de Depresión</title>
     <style>
+        /* Estilos del modal */
+/* Estilos del modal */
+/* Estilos del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    z-index: 1000; /* Por encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #A6DFD0; /* Color de fondo similar a la imagen */
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    position: relative;
+    text-align: left;
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.modal-content p, .modal-content ul {
+    font-size: 1rem;
+    color: #333;
+}
+
+.modal-content ul {
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
+/* Estilo del botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -151,6 +223,30 @@
         }
     </style>
 </head>
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Acerca de su puntuación</h2>
+        <p>
+            Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
+        </p>
+        <ul>
+            <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
+        </ul>
+        <h3>Interpretación de su puntuación total</h3>
+        <ul>
+            <li>3.7%-14.8%: Depresión mínima</li>
+            <li>18.5%-33.3%: Depresión leve</li>
+            <li>37%-51.8%: Depresión moderada</li>
+            <li>55.6%-70.4%: Depresión moderadamente severa</li>
+            <li>74.1%-100%: Depresión severa</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
 <body>
     <form id="form1" runat="server">
       <div class="top-bar">
@@ -188,9 +284,7 @@
                     <button type="button" onclick="location.href='respuestasDepresion.aspx';">Tus respuestas</button>
                     <button type="button" id="openMenuButton">Realizar otro quizz</button>
                 </div>
-            </div>
-
-            
+            </div>            
         </div>
     </form>
         <script>
@@ -215,6 +309,36 @@
 
   
         </script>
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById("infoModal");
+
+        // Obtener el botón que abre el modal
+        var btn = document.querySelector(".buttons button"); // Suponiendo que el botón "Acerca de tus resultados" es el primero
+
+        // Obtener el elemento <span> que cierra el modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario haga clic en el botón, se muestra el modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // Cuando el usuario haga clic en <span> (x), se cierra el modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario haga clic fuera del modal, se cierra
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+
 </body>
 
 </html>
