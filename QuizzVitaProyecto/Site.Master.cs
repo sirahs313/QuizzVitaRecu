@@ -29,19 +29,41 @@ namespace QuizzVitaProyecto
             string email = Request.Form["email"];
             string password = Request.Form["password"];
 
-            if (AuthenticateUser(email, password))
+            // Autenticación y obtención del rol del usuario
+            string role = AuthenticateUser(email, password);
+
+            if (role == "not_found")
             {
-                FormsAuthentication.SetAuthCookie(email, false);
-                Response.Redirect("~/Principal/Home.aspx");
-               
+                // Usuario no encontrado en la base de datos, abrir el modal de registro
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "openRegisterModal", "document.getElementById('registerModal').style.display = 'block';", true);
+            }
+            else if (role != null)
+            {
+                // Guardar el rol en la sesión para uso posterior
+                Session["Role"] = role;
+                Session["Email"] = email;
+
+                // Redireccionar según el rol del usuario
+                if (role == "admin")
+                {
+                    FormsAuthentication.SetAuthCookie(email, false);
+                    //Vista del admin
+                    Response.Redirect("~/");
+                }
+                else if (role == "estudiante")
+                {
+                    FormsAuthentication.SetAuthCookie(email, false);
+                    Response.Redirect("~/Principal/Home.aspx");
+                }
             }
             else
             {
+                // Mostrar mensaje de error para credenciales incorrectas
                 Response.Write("<script>alert('Correo electrónico o contraseña incorrectos');</script>");
             }
         }
 
-        private bool AuthenticateUser(string email, string password)
+        private string AuthenticateUser(string email, string password)
         {
             // Hash de la contraseña ingresada
             string hashedPassword = HashPassword(password);
@@ -51,19 +73,32 @@ namespace QuizzVitaProyecto
             {
                 connection.Open();
 
-                // Define la consulta SQL con parámetros
-                string sql = "SELECT COUNT(1) FROM [dbo].[Users] WHERE [email] = @Email AND [Password] = @Password";
+                // Primero, verificar si el correo electrónico existe en la base de datos
+                string checkUserSql = "SELECT COUNT(1) FROM [dbo].[users] WHERE [email] = @Email";
+                using (SqlCommand checkUserCommand = new SqlCommand(checkUserSql, connection))
+                {
+                    checkUserCommand.Parameters.AddWithValue("@Email", email);
+                    int userExists = (int)checkUserCommand.ExecuteScalar();
 
+                    if (userExists == 0)
+                    {
+                        // Usuario no encontrado, retornar "not_found" para redirigir al registro
+                        return "not_found";
+                    }
+                }
+
+                // Luego, verificar si el correo y la contraseña coinciden y obtener el rol
+                string sql = "SELECT role FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    // Usa parámetros para evitar inyección SQL
                     command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Password", hashedPassword);
 
-                    int count = (int)command.ExecuteScalar();
+                    // Ejecutar la consulta y obtener el rol si las credenciales son correctas
+                    object result = command.ExecuteScalar();
 
-                    // Si se encuentra un registro, las credenciales son correctas
-                    return count == 1;
+                    // Retornar el rol si se encuentra una coincidencia, o null si las credenciales son incorrectas
+                    return result?.ToString();
                 }
             }
         }

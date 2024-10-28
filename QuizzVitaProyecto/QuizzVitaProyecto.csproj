@@ -484,6 +484,7 @@
       <DependentUpon>LoginHandler.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Principal\AuthService.cs" />
     <Compile Include="Principal\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
