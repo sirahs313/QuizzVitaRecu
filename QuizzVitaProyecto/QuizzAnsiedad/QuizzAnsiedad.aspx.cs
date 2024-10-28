@@ -14,6 +14,7 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
             if (!User.Identity.IsAuthenticated)
             {
                 // Redirige a la página de inicio de sesión si el usuario no está autenticado
+
                 Response.Redirect("/Principal/Home.aspx");
             }
         }

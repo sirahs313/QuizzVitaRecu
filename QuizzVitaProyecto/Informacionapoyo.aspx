@@ -266,10 +266,6 @@
         </div>
     </div>
 
-    <div class="footer">
-        <a href="#">Aviso de Privacidad</a>
-        <a href="#">Términos y Condiciones</a>
-    </div>
     <script>
         document.getElementById("menuButton").onclick = function () {
             document.getElementById("sideMenu").style.width = "250px";

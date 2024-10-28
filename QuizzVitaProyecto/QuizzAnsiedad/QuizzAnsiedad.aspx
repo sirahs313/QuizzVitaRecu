@@ -124,6 +124,12 @@
         .blurred {
             filter: blur(5px);
         }
+        footer {
+    background-color: rgba(239, 237, 237, 0.90);
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
     </style>
 
 
@@ -350,6 +356,7 @@
     </div>
     <button type="submit" runat="server" id="Button1" onserverclick="SubmitQuiz">Enviar respuestas</button>
     </div>
+
     </form>
         
       

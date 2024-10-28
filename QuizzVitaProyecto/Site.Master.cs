@@ -18,7 +18,22 @@ namespace QuizzVitaProyecto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            lnkLogout.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
+
+            if (!IsPostBack)
+            {
+                if (Session["UserName"] != null)
+                {
+                    lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
+                    lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
+                    lnkLogout.Visible = true;    // Hacer visible el LinkButton para cerrar sesión
+                }
+                else
+                {
+                    lblUserName.Visible = false; // Ocultar el label si no hay sesión
+                    lnkLogout.Visible = false;    // Ocultar el LinkButton si no hay sesión
+                }
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -49,20 +64,20 @@ namespace QuizzVitaProyecto
 
         private string AuthenticateUser(string email, string password)
         {
-           using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
-    {
-        connection.Open();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                connection.Open();
 
-        // Verificar si el correo y la contraseña coinciden y obtener el nombre del usuario
-        string sql = "SELECT Nombre FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password";
-        using (SqlCommand command = new SqlCommand(sql, connection))
-        {
-            command.Parameters.AddWithValue("@Email", email);
-            command.Parameters.AddWithValue("@Password", password); // Usar la contraseña sin hashear
+                // Verificar si el correo y la contraseña coinciden y obtener el nombre del usuario
+                string sql = "SELECT Nombre FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password"; // Considera hashear las contraseñas
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password); // Usar la contraseña sin hashear
 
-            object result = command.ExecuteScalar();
+                    object result = command.ExecuteScalar();
 
-            return result?.ToString();
+                    return result?.ToString(); // Devuelve el nombre del usuario si la autenticación es correcta
                 }
             }
         }
@@ -80,6 +95,13 @@ namespace QuizzVitaProyecto
                 }
                 return builder.ToString();
             }
+        }
+
+        protected void lnkLogout_Click(object sender, EventArgs e)
+        {
+            // Código para cerrar sesión
+            Session.Abandon(); // Termina la sesión actual
+            Response.Redirect("/Principal/Home.aspx"); // Redirige a la página de inicio de sesión
         }
     }
 }
