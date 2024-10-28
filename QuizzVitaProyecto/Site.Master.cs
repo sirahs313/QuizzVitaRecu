@@ -18,22 +18,22 @@ namespace QuizzVitaProyecto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lnkLogout.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
 
-            if (!IsPostBack)
-            {
-                if (Session["UserName"] != null)
+
+            
+
+            if (Session["UserName"] != null)
                 {
                     lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
                     lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
-                    lnkLogout.Visible = true;    // Hacer visible el LinkButton para cerrar sesión
+                LinkButton1.Visible = true;    // Hacer visible el LinkButton para cerrar sesión
                 }
                 else
                 {
                     lblUserName.Visible = false; // Ocultar el label si no hay sesión
-                    lnkLogout.Visible = false;    // Ocultar el LinkButton si no hay sesión
+                LinkButton1.Visible = false;    // Ocultar el LinkButton si no hay sesión
                 }
-            }
+            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

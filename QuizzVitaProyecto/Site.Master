@@ -209,7 +209,7 @@
             width: 46px;
             height: 46px;
         }
-
+        
         
 
     </style>
@@ -224,14 +224,19 @@
         </asp:ScriptManager>
 
         <nav class="navbar fixed-top">
+
             <div class="container-fluid" style="padding-left: 4%; padding-right: 4%">
                 <a class="navbar-brand" href="/Principal/Home.aspx">
                     <asp:Image ID="Image1" runat="server" ImageUrl="/Principal/img/inicio.png" />
+   
                 </a>
+
+                 
                 <div class="d-flex">
                     <a class="navbar-brand" href="#" style="margin-right: 15%" id="openModal">
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
+
                     <img src="/Principal/img/menu.png"
                         class="navbar-toggler"
                         type="button"
@@ -241,7 +246,15 @@
                         aria-label="Toggle navigation"
                         style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
                     <!-- Aquí irían otros elementos de la barra de navegación -->
-                <asp:Label ID="lblUserName" runat="server" Visible="false"></asp:Label>
+                    
+                                        <div class="d-flex">
+
+    <asp:Label ID="lblUserName" runat="server" Visible="false"></asp:Label>
+
+</div>
+
+
+                    <!-- BOTON CERRAR SESION -->
                 <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkLogout_Click">Cerrar sesión</asp:LinkButton>
 
                     <!-- Offcanvas para el menú desplegable -->

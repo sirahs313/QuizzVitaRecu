@@ -24,6 +24,7 @@
         <asp:Label ID="lblUserName" runat="server" Text=""></asp:Label>
         <div class="DesktopPrincipal" style="width: 100%; min-height: 100vh; position: relative; background: white; padding-bottom: 60px;">
 
+
             <div class="Quizzvita" style="width: 400px; height: 105px; left: 80px; top: 100px; position: absolute; text-align: left; color: black; font-size: 70px; font-family: CoffeeSpark; font-weight: 800;">
                 QuizzVita
             </div>
