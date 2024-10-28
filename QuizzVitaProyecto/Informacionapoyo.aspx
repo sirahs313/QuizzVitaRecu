@@ -1,12 +1,125 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo" %>
+﻿
+    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo"  MasterPageFile="~/Site.Master"  %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+   <style>
+    @media (max-width: 768px) {
+        .EllipseContainer {
+            display: none;
+        }
+    }
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Información de Apoyo</title>
-    <style>
+    @font-face {
+        font-family: 'CoffeeSpark';
+        src: url('Fuentes/Coffee Spark.ttf');
+    }
+
+    @font-face {
+        font-family: 'Sarlotte';
+        src: url('Fuentes/Sarlotte.otf');
+    }
+
+    /*body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .top-bar {
+        background-color: #a6dfd0;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .top-bar img {
+            width: 30px;
+            height: 30px;
+        }
+
+    .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .logo {
+        width: 80px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-family: 'Rokkitt', serif;
+        font-size: 2rem;
+        color: #4b0082;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .question {
+        text-align: left;
+        margin: 20px 0;
+    }
+
+    button {
+        background-color: #4b0082;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #6a0dad;
+        }
+
+    .side-menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+        .side-menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+            .side-menu a:hover {
+                color: #f1f1f1;
+            }
+
+        .side-menu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+    .blurred {
+        filter: blur(5px);
+    }*/
+/*   CAMBNIOS*/
         body {
             font-family: Arial, sans-serif;
             background-color: #F5F5F5;
@@ -130,26 +243,7 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
-    </style>
-</head>
-<body>
-    <div class="header">
-        <img src="/Principal/img/inicio.png" alt="Home" />
-        <div class="menu">
-            <img src="/Principal/img/login.png" alt="sesion"/>
-            <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
-        </div>        
-        <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-    <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
-    <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
-    <a href="/QuizzEstres/Estres.aspx">Estrés</a>
-    <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
-
-</div>
-    </div>
-
+</style>
     <div class="main-content">
         <h1>Información de apoyo</h1>
 
@@ -185,5 +279,5 @@
         }
     </script>
 </body>
-</html>
+   </asp:Content>
 
