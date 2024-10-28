@@ -11,7 +11,11 @@ namespace QuizzVitaProyecto.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack && Session["UserName"] != null)
+            {
+                lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
+            }
         }
+
     }
 }
