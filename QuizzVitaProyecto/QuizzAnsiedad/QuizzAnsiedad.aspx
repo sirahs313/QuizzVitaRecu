@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QuizzAnsiedad.aspx.cs" Inherits="QuizzVitaProyecto.QuizzAnsiedad.QuizzAnsiedad" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Depresion.aspx.cs" Inherits="QuizzVitaProyecto.QuizzDepresion.WebForm1" MasterPageFile="~/Site.Master"%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
     <!DOCTYPE html>

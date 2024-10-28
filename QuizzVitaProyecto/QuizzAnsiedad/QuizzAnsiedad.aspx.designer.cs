@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QuizzVitaProyecto.QuizzAnsiedad
+namespace QuizzVitaProyecto.QuizzDepresion
 {
 
 
-    public partial class QuizzAnsiedad
+    public partial class WebForm1
     {
 
         /// <summary>

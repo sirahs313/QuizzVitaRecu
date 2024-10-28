@@ -18,10 +18,7 @@ namespace QuizzVitaProyecto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack && Request.Form["email"] != null)
-            {
-                btnLogin_Click(sender, e);
-            }
+           
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -52,20 +49,20 @@ namespace QuizzVitaProyecto
 
         private string AuthenticateUser(string email, string password)
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
-            {
-                connection.Open();
+           using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+    {
+        connection.Open();
 
-                // Verificar si el correo y la contraseña coinciden y obtener el nombre del usuario
-                string sql = "SELECT Nombre FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password";
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password); // Usar la contraseña sin hashear
+        // Verificar si el correo y la contraseña coinciden y obtener el nombre del usuario
+        string sql = "SELECT Nombre FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password";
+        using (SqlCommand command = new SqlCommand(sql, connection))
+        {
+            command.Parameters.AddWithValue("@Email", email);
+            command.Parameters.AddWithValue("@Password", password); // Usar la contraseña sin hashear
 
-                    object result = command.ExecuteScalar();
+            object result = command.ExecuteScalar();
 
-                    return result?.ToString();
+            return result?.ToString();
                 }
             }
         }

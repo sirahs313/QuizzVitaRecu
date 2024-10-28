@@ -11,7 +11,11 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Redirige a la página de inicio de sesión si el usuario no está autenticado
+                Response.Redirect("/Principal/Home.aspx");
+            }
         }
         protected void SubmitQuiz(object sender, EventArgs e)
         {
