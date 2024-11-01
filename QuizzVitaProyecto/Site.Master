@@ -288,10 +288,7 @@
                                         </a>
                                     </div>
                                 </li>
-                                <!-- Enlace para cerrar sesión -->
-        <li class="nav-item" style="text-align: center;">
-          <a id="lnkLogout" class="nav-link" runat="server" href="~/Logout.aspx" style="color: #000000; margin-top: 5%; padding-top: 7%; padding-bottom: 7%; margin-left: 4%; margin-right: 4%;">Cerrar sesión</a>
-        </li>
+        
                                 <!-- Puedes añadir más enlaces aquí si lo necesitas -->
                             </ul>
                         </div>

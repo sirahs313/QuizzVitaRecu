@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzEstres.Res" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzEstres.Res"  MasterPageFile="~/Site.Master"%>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Resultados del Quizz de Estrés</title>
     <style>
@@ -257,21 +258,8 @@
     </div>
 </div>
 <body>
-    <form id="form1" runat="server">
-      <div class="top-bar">
-          <img src="/Principal/img/inicio.png" alt="Home" />
-          <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
-
-<!-- Menú lateral -->
-<div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-    <h1>Quizzes</h1>
-    <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
-    <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
-    <a href="/QuizzEstres/Estres.aspx">Estrés</a>
-    <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
-</div>
-      </div>
+    <form id="form1"">
+    
         <div class="container" id="contentContainer">
             <h1>¡Aquí están tus resultados!</h1>
             <div class="result-box">
@@ -363,3 +351,4 @@
 </body>
 </html>
 
+</asp:Content>

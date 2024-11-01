@@ -1,77 +1,79 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzAnsiedad.Res" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzAnsiedad.Res" MasterPageFile="~/Site.Master" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+
     <title>Resultados del Quizz de Ansiedad</title>
+
     <style>
         .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Posición fija en la pantalla */
-    z-index: 1000; /* Por encima del contenido */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-}
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija en la pantalla */
+            z-index: 1000; /* Por encima del contenido */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+        }
 
-.modal-content {
-    background-color: #A6DFD0; /* Color de fondo similar a la imagen */
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 15px; /* Bordes redondeados */
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    position: relative;
-    text-align: left;
-    font-family: 'Mulish', sans-serif;
-    line-height: 1.6;
-}
+        .modal-content {
+            background-color: #A6DFD0; /* Color de fondo similar a la imagen */
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            position: relative;
+            text-align: left;
+            font-family: 'Mulish', sans-serif;
+            line-height: 1.6;
+        }
 
-.modal-content h2 {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+            .modal-content h2 {
+                font-size: 1.5rem;
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
 
-.modal-content h3 {
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: bold;
-    margin-top: 20px;
-}
+            .modal-content h3 {
+                font-size: 1.2rem;
+                color: #333;
+                font-weight: bold;
+                margin-top: 20px;
+            }
 
-.modal-content p, .modal-content ul {
-    font-size: 1rem;
-    color: #333;
-}
+            .modal-content p, .modal-content ul {
+                font-size: 1rem;
+                color: #333;
+            }
 
-.modal-content ul {
-    padding-left: 20px;
-}
+            .modal-content ul {
+                padding-left: 20px;
+            }
 
-.modal-content li {
-    margin-bottom: 10px;
-}
+            .modal-content li {
+                margin-bottom: 10px;
+            }
 
-/* Estilo del botón de cerrar */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        /* Estilo del botón de cerrar */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.close:hover {
-    color: #000;
-}
+            .close:hover {
+                color: #000;
+            }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -87,10 +89,10 @@
             align-items: center;
         }
 
-        .top-bar img {
-            width: 30px;
-            height: 30px;
-        }
+            .top-bar img {
+                width: 30px;
+                height: 30px;
+            }
 
         .container {
             padding: 20px;
@@ -114,16 +116,16 @@
             margin-bottom: 20px;
         }
 
-        .result-box p {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
+            .result-box p {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
 
-        .result-box h2 {
-            font-size: 1.8rem;
-            color: #4b0082;
-            margin: 10px 0;
-        }
+            .result-box h2 {
+                font-size: 1.8rem;
+                color: #4b0082;
+                margin: 10px 0;
+            }
 
         .buttons {
             display: flex;
@@ -131,18 +133,18 @@
             margin-top: 20px;
         }
 
-        .buttons button {
-            background-color: #4b0082;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            .buttons button {
+                background-color: #4b0082;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-        .buttons button:hover {
-            background-color: #6a0dad;
-        }
+                .buttons button:hover {
+                    background-color: #6a0dad;
+                }
 
         p {
             font-size: 1rem;
@@ -165,7 +167,7 @@
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
-            width: 100%;  /* Asegura que la barra tenga un ancho máximo del 100% del contenedor */
+            width: 100%; /* Asegura que la barra tenga un ancho máximo del 100% del contenedor */
         }
 
         .progress {
@@ -176,192 +178,180 @@
             padding-right: 10px;
             color: white;
             font-weight: bold;
-            transition: width 0.5s ease-in-out; 
+            transition: width 0.5s ease-in-out;
         }
 
         .side-menu {
-            height: 100%; 
+            height: 100%;
             width: 0;
             position: fixed;
-            z-index: 1; 
+            z-index: 1;
             top: 0;
-            right: 0; 
+            right: 0;
             background-color: #111;
             overflow-x: hidden;
-            transition: 0.5s; 
-            padding-top: 60px; 
+            transition: 0.5s;
+            padding-top: 60px;
         }
 
-        .side-menu a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+            .side-menu a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
 
-        .side-menu a:hover {
-            color: #f1f1f1;
-        }
+                .side-menu a:hover {
+                    color: #f1f1f1;
+                }
 
-        .side-menu .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
+            .side-menu .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
 
         .blurred {
             filter: blur(5px);
         }
     </style>
-</head>
+    </head>
     <div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Acerca de su puntuación</h2>
-        <p>
-            Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
-        </p>
-        <ul>
-            <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
-        </ul>
-        <h3>Interpretación de su puntuación total</h3>
-        <ul>
-            <li>3.7%-14.8%: Depresión mínima</li>
-            <li>18.5%-33.3%: Depresión leve</li>
-            <li>37%-51.8%: Depresión moderada</li>
-            <li>55.6%-70.4%: Depresión moderadamente severa</li>
-            <li>74.1%-100%: Depresión severa</li>
-        </ul>
-    </div>
-</div>
-
-<div id="infoespecModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Consejos para manejar la Ansiedad</h2>
-        <h3>Practica la escritura terapéutica:</h3>
-        <ul>
-            <li>Llevar un diario donde escribas tus pensamientos y preocupaciones para ayudarte a liberar la tensión.</li>
-        </ul>
-        <h3>Limitar el consumo de cafeína y azúcar:</h3>
-        <ul>
-            <li>Estos estimulantes pueden aumentar los síntomas de ansiedad, como el nerviosismo y la inquietud.</li>
-        </ul>
-        <h3>Haz una pausa sensorial:</h3>
-        <ul>
-            <li>Cuando sientas que la ansiedad aumenta, tómate un momento para concentrarte en tus cinco sentidos. Por ejemplo, puedes mirar algo agradable, oler una fragancia relajante, etc.</li>
-        </ul>
-    </div>
-</div>
-
-<body>
-    <form id="form1" runat="server">
-        <div class="top-bar">
-            <img src="/Principal/img/inicio.png" alt="Home" />
-            <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
-
-            <!-- Menú lateral -->
-            <div id="sideMenu" class="side-menu">
-                <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-                <h1>Quizzes</h1>
-                <a href="/QuizzDepresion/depresion.aspx">Depresión</a>
-                <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Estrés</a>
-                <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
-            </div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Acerca de su puntuación</h2>
+            <p>
+                Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
+            </p>
+            <ul>
+                <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
+            </ul>
+            <h3>Interpretación de su puntuación total</h3>
+            <ul>
+                <li>3.7%-14.8%: Depresión mínima</li>
+                <li>18.5%-33.3%: Depresión leve</li>
+                <li>37%-51.8%: Depresión moderada</li>
+                <li>55.6%-70.4%: Depresión moderadamente severa</li>
+                <li>74.1%-100%: Depresión severa</li>
+            </ul>
         </div>
+    </div>
 
-        <div class="container" id="contentContainer">
-            <h1>¡Aquí están tus resultados!</h1>
-            <div class="result-box">
-                <p>Tu diagnóstico actual es:</p>
-                <h2 style="color: #4b0082;"><%= Request.QueryString["diagnosis"] %></h2>
+    <div id="infoespecModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Consejos para manejar la Ansiedad</h2>
+            <h3>Practica la escritura terapéutica:</h3>
+            <ul>
+                <li>Llevar un diario donde escribas tus pensamientos y preocupaciones para ayudarte a liberar la tensión.</li>
+            </ul>
+            <h3>Limitar el consumo de cafeína y azúcar:</h3>
+            <ul>
+                <li>Estos estimulantes pueden aumentar los síntomas de ansiedad, como el nerviosismo y la inquietud.</li>
+            </ul>
+            <h3>Haz una pausa sensorial:</h3>
+            <ul>
+                <li>Cuando sientas que la ansiedad aumenta, tómate un momento para concentrarte en tus cinco sentidos. Por ejemplo, puedes mirar algo agradable, oler una fragancia relajante, etc.</li>
+            </ul>
+        </div>
+    </div>
 
-                <!-- Barra de progreso -->
-                <div class="progress-bar">
-                    <div class="progress" style="width:<%= (Convert.ToInt32(Request.QueryString["score"]) * 100 / 30) %>%;">
-                        <%= Request.QueryString["score"] %>/30
+    <body>
+        <form id="form1" 
+          
+            <div class="container" id="contentContainer">
+                <h1>¡Aquí están tus resultados!</h1>
+                <div class="result-box">
+                    <p>Tu diagnóstico actual es:</p>
+                    <h2 style="color: #4b0082;"><%= Request.QueryString["diagnosis"] %></h2>
+
+                    <!-- Barra de progreso -->
+                    <div class="progress-bar">
+                        <div class="progress" style="width: <%= (Convert.ToInt32(Request.QueryString["score"]) * 100 / 30) %>%;">
+                            <%= Request.QueryString["score"] %>/30
+                        </div>
+                    </div>
+
+                    <!-- Botones para más acciones -->
+                    <div class="buttons">
+                        <button type="button">Acerca de tus resultados</button>
+                        <button type="button">Consejos para manejar tu ansiedad</button>
+                        <button type="button" onclick="location.href='respuestasAnsiedad.aspx';">Tus respuestas</button>
+                        <button type="button" id="openMenuButton">Realizar otro quizz</button>
                     </div>
                 </div>
-
-                <!-- Botones para más acciones -->
-                <div class="buttons">
-                    <button type="button">Acerca de tus resultados</button>
-                    <button type="button">Consejos para manejar tu ansiedad</button>
-                    <button type="button" onclick="location.href='respuestasAnsiedad.aspx';">Tus respuestas</button>
-                    <button type="button" id="openMenuButton">Realizar otro quizz</button>
-                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-    <script>
+        <script>
 
-        function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
-            document.getElementById("contentContainer").classList.add("blurred");
-        }
-
-
-        function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-            document.getElementById("contentContainer").classList.remove("blurred");
-        }
+            function openMenu() {
+                document.getElementById("sideMenu").style.width = "250px";
+                document.getElementById("contentContainer").classList.add("blurred");
+            }
 
 
-        document.getElementById("menuButton").onclick = openMenu;
-        document.getElementById("closeMenu").onclick = closeMenu;
-        document.getElementById("openMenuButton").onclick = openMenu;
+            function closeMenu() {
+                document.getElementById("sideMenu").style.width = "0";
+                document.getElementById("contentContainer").classList.remove("blurred");
+            }
 
-        
-    </script>
-      <script>
-          // Obtener el modal
-          var modal = document.getElementById("infoModal");
 
-          // Obtener el botón que abre el modal
-          var btn = document.querySelector(".buttons button"); // Suponiendo que el botón "Acerca de tus resultados" es el primero
+            document.getElementById("menuButton").onclick = openMenu;
+            document.getElementById("closeMenu").onclick = closeMenu;
+            document.getElementById("openMenuButton").onclick = openMenu;
 
-          // Obtener el elemento <span> que cierra el modal
-          var span = document.getElementsByClassName("close")[0];
 
-          // Cuando el usuario haga clic en el botón, se muestra el modal
-          btn.onclick = function () {
-              modal.style.display = "block";
-          }
+        </script>
+        <script>
+            // Obtener el modal
+            var modal = document.getElementById("infoModal");
 
-          // Cuando el usuario haga clic en <span> (x), se cierra el modal
-          span.onclick = function () {
-              modal.style.display = "none";
-          }
+            // Obtener el botón que abre el modal
+            var btn = document.querySelector(".buttons button"); // Suponiendo que el botón "Acerca de tus resultados" es el primero
 
-          // Cuando el usuario haga clic fuera del modal, se cierra
-          window.onclick = function (event) {
-              if (event.target == modal) {
-                  modal.style.display = "none";
-              }
-          }
-      </script>
-    <script>
-        var modal2 = document.getElementById("infoespecModal");
-        var buttons = document.querySelectorAll(".buttons button");
-        var btn = buttons[1];
-        var span = document.getElementsByClassName("close")[1];
-        btn.onclick = function () {
-            modal2.style.display = "block";
-        }
-        span.onclick = function () {
-            modal2.style.display = "none";
-        }
-        window.onclick = function (event) {
-            if (event.target == modal2) {
+            // Obtener el elemento <span> que cierra el modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Cuando el usuario haga clic en el botón, se muestra el modal
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // Cuando el usuario haga clic en <span> (x), se cierra el modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // Cuando el usuario haga clic fuera del modal, se cierra
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <script>
+            var modal2 = document.getElementById("infoespecModal");
+            var buttons = document.querySelectorAll(".buttons button");
+            var btn = buttons[1];
+            var span = document.getElementsByClassName("close")[1];
+            btn.onclick = function () {
+                modal2.style.display = "block";
+            }
+            span.onclick = function () {
                 modal2.style.display = "none";
             }
-        }
+            window.onclick = function (event) {
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                }
+            }
 
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>
+</asp:Content>

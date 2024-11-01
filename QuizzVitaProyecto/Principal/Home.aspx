@@ -11,7 +11,7 @@
 
         @font-face {
             font-family: 'CoffeeSpark';
-            src: url('Fuentes/Coffee Spark.ttf'); 
+            src: url('Fuentes/Coffee Spark.ttf');
         }
 
         @font-face {
