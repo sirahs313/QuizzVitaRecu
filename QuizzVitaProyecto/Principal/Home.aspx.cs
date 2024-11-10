@@ -13,7 +13,7 @@ namespace QuizzVitaProyecto.Principal
         {
             if (!IsPostBack && Session["UserName"] != null)
             {
-                lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
+             
                 lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
 
             }

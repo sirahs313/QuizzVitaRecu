@@ -11,6 +11,12 @@ namespace QuizzVitaProyecto.QuizzDepresion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+
+                Response.Redirect("/Principal/Home.aspx?showModal=true");
+
+            }
         }
 
         protected void SubmitQuiz(object sender, EventArgs e)

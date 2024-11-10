@@ -25,6 +25,8 @@
 
         .navbar {
             background-color: #A4ECD2;
+             height: 70px;
+
         }
 
         .navbar-brand {
@@ -32,6 +34,10 @@
             font-size: 24px;
             color: black;
         }
+        .navbar-brand img{
+     width: 50px; /* Ajusta al tamaño que desees */
+    height: auto;
+}
 
         .navbar-nav .nav-link {
             color: black;
@@ -39,7 +45,7 @@
 
         .container.body-content {
             padding: 20px;
-            margin-top: 50px;
+            margin-top: 100px;
         }
 
         footer {
@@ -225,7 +231,7 @@
 
         <nav class="navbar fixed-top">
 
-            <div class="container-fluid" style="padding-left: 4%; padding-right: 4%">
+            <div class="container-fluid" style="padding-left: 4%; padding-right: 1%">
                 <a class="navbar-brand" href="/Principal/Home.aspx">
                     <asp:Image ID="Image1" runat="server" ImageUrl="/Principal/img/inicio.png" />
    
@@ -244,7 +250,7 @@
                         data-bs-target="#offcanvasNavbar"
                         aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation"
-                        style="cursor: pointer; border: none; margin-bottom: 3%; margin-top: 3%;" />
+                        style="cursor: pointer; border: none; margin-bottom: 1%; margin-top: 1%;" />
                     <!-- Aquí irían otros elementos de la barra de navegación -->
                     
                                         <div class="d-flex">

@@ -258,7 +258,7 @@
     </div>
 </div>
 <body>
-    <form id="form1"">
+    <form id="form1">
     
         <div class="container" id="contentContainer">
             <h1>¡Aquí están tus resultados!</h1>

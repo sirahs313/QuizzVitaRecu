@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,11 +13,11 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!User.Identity.IsAuthenticated)
+            if (Session["UserName"] == null)
             {
-                // Redirige a la página de inicio de sesión si el usuario no está autenticado
 
-                Response.Redirect("/Principal/Home.aspx");
+                Response.Redirect("/Principal/Home.aspx?showModal=true");
+
             }
         }
         protected void SubmitQuiz(object sender, EventArgs e)
@@ -57,6 +59,23 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
                 diagnosis = "Ansiedad Severa";
             }
 
+            // Insertar el resultado en la base de datos
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO [dbo].[results] (user_id, problem_id, fecha, puntaje) VALUES (@UserID, @ProblemID, @Fecha, @Puntaje)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", 1);  // Reemplaza este valor con el ID del usuario
+                    command.Parameters.AddWithValue("@ProblemID", 2); 
+                    command.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                    command.Parameters.AddWithValue("@Puntaje", totalScore);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+
+
             // Redirigir a la página de resultados con el diagnóstico
             Response.Redirect($"Res.aspx?diagnosis={diagnosis}&score={totalScore}");
         }
@@ -64,3 +83,6 @@ namespace QuizzVitaProyecto.QuizzAnsiedad
         
     }
 }
+
+
+

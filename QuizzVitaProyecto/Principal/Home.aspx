@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="QuizzVita" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="QuizzVitaProyecto.Principal.Home" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
-
         @media (max-width: 768px) {
             .EllipseContainer {
                 display: none;
@@ -17,6 +17,59 @@
         @font-face {
             font-family: 'Sarlotte';
             src: url('Fuentes/Sarlotte.otf');
+        }
+        /* Estilos básicos para el modal */
+        .modal {
+            display: none; /* Por defecto, oculto */
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .close:hover, .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
         }
     </style>
 
@@ -40,8 +93,41 @@
                
                 </div>
             </div>
-
+            <!-- Modal de inicio de sesión -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Inicia sesión o regístrate</h2>
+                    <p>Para poder iniciar el Quizz, por favor inicia sesión o regístrate.</p>
+                    <a href="/Principal/Home.aspx" class="btn btn-primary">Iniciar sesión</a>
+                    <a href="/Registro.aspx" class="btn btn-secondary">Registrarse</a>
+                </div>
+            </div>
         </div>
 
+
+        <script>
+            window.onload = function () {
+                // Verifica si el parámetro "showModal" está presente en la URL
+                var urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('showModal') === 'true') {
+                    // Mostrar el modal
+                    var modal = document.getElementById("loginModal");
+                    modal.style.display = "block";
+
+                    // Cerrar el modal al hacer clic en la 'x'
+                    document.querySelector(".close").onclick = function () {
+                        modal.style.display = "none";
+                    };
+
+                    // Cerrar el modal al hacer clic fuera de él
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    };
+                }
+            }
+</script>
     </asp:Panel>
 </asp:Content>
