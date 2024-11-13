@@ -59,6 +59,9 @@ namespace QuizzVitaProyecto
             {
                 diagnosis = "Estres Severo";
             }
+            // Obtener el ID del usuario desde la sesión
+            int userId = (int)Session["UserID"];  
+
             // Insertar el resultado en la base de datos
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -66,7 +69,7 @@ namespace QuizzVitaProyecto
                 string query = "INSERT INTO [dbo].[results] (user_id, problem_id, fecha, puntaje) VALUES (@UserID, @ProblemID, @Fecha, @Puntaje)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@UserID", 1);  // Reemplaza este valor con el ID del usuario
+                    command.Parameters.AddWithValue("@UserID", userId);  
                     command.Parameters.AddWithValue("@ProblemID", 3);
                     command.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     command.Parameters.AddWithValue("@Puntaje", totalScore);

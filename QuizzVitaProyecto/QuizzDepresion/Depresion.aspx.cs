@@ -57,6 +57,8 @@ namespace QuizzVitaProyecto.QuizzDepresion
             {
                 diagnosis = "Depresion Severa";
             }
+            // Obtener el ID del usuario desde la sesión
+            int userId = (int)Session["UserID"];  
 
             // Insertar el resultado en la base de datos
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -66,7 +68,7 @@ namespace QuizzVitaProyecto.QuizzDepresion
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@UserID", 1);  // Reemplaza este valor con el ID del usuario
+                    command.Parameters.AddWithValue("@UserID", userId);  
                     command.Parameters.AddWithValue("@ProblemID", 1); // ID del quiz "Depresión" (1)
                     command.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     command.Parameters.AddWithValue("@Puntaje", totalScore);

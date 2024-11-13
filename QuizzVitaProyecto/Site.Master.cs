@@ -41,12 +41,15 @@ namespace QuizzVitaProyecto
             string email = Request.Form["email"];
             string password = Request.Form["password"];
 
+            // Encriptar la contraseña ingresada para comparar con el hash almacenado
+            string hashedPassword = HashPassword(password);
+
             // Autenticación y obtención del nombre del usuario
-            string userName = AuthenticateUser(email, password);
+            string userName = AuthenticateUser(email, hashedPassword);
 
             if (userName != null)
             {
-                // Guardar el nombre en la sesión para uso posterior
+                // Guardar el nombre y user_id en la sesión para uso posterior
                 Session["UserName"] = userName;
                 Session["Email"] = email;
 
@@ -58,30 +61,36 @@ namespace QuizzVitaProyecto
             {
                 // Mostrar mensaje de error para credenciales incorrectas
                 Response.Write("<script>alert('Correo electrónico o contraseña incorrectos');</script>");
-            
             }
         }
 
-
-        private string AuthenticateUser(string email, string password)
+        private string AuthenticateUser(string email, string hashedPassword)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 connection.Open();
 
-                // Verificar si el correo y la contraseña coinciden y obtener el nombre del usuario
-                string sql = "SELECT Nombre FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password"; // Considera hashear las contraseñas
+                // Verificar si el correo y el hash de la contraseña coinciden
+                string sql = "SELECT Nombre, user_id FROM [dbo].[users] WHERE [email] = @Email AND [Password] = @Password";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password); // Usar la contraseña sin hashear
+                    command.Parameters.AddWithValue("@Password", hashedPassword); // Usar el hash de la contraseña ingresada
 
-                    object result = command.ExecuteScalar();
-
-                    return result?.ToString(); // Devuelve el nombre del usuario si la autenticación es correcta
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Guardar `user_id` en la sesión para usarlo en otras partes de la aplicación
+                            Session["UserID"] = reader["user_id"];
+                            return reader["Nombre"].ToString(); // Devuelve el nombre del usuario si la autenticación es correcta
+                        }
+                    }
                 }
             }
+            return null;
         }
+
 
 
         private string HashPassword(string password)
