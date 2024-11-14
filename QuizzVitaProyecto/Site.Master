@@ -243,7 +243,7 @@
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
 
-                    <img src="/Principal/img/menu.png"
+                    <img src="/Principal/img/menu.png" id="menu"
                         class="navbar-toggler"
                         type="button"
                         data-bs-toggle="offcanvas"

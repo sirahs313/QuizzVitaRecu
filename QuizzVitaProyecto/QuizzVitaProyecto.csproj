@@ -293,6 +293,7 @@
     </None>
     <Content Include="Principal\Fuentes\Coffee Spark.ttf" />
     <Content Include="Principal\Fuentes\Sarlotte.otf" />
+    <Content Include="Resultados\Resultados.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -555,6 +556,13 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resultados\Resultados.aspx.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resultados\Resultados.aspx.designer.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
