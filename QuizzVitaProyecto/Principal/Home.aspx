@@ -99,8 +99,7 @@
                     <span class="close">&times;</span>
                     <h2>Inicia sesión o regístrate</h2>
                     <p>Para poder iniciar el Quizz, por favor inicia sesión o regístrate.</p>
-                    <a href="/Principal/Home.aspx" class="btn btn-primary">Iniciar sesión</a>
-                    <a href="/Registro.aspx" class="btn btn-secondary">Registrarse</a>
+                    
                 </div>
             </div>
         </div>
@@ -108,6 +107,7 @@
 
         <script>
             window.onload = function () {
+
                 // Verifica si el parámetro "showModal" está presente en la URL
                 var urlParams = new URLSearchParams(window.location.search);
                 if (urlParams.get('showModal') === 'true') {
@@ -115,17 +115,9 @@
                     var modal = document.getElementById("loginModal");
                     modal.style.display = "block";
 
-                    // Cerrar el modal al hacer clic en la 'x'
-                    document.querySelector(".close").onclick = function () {
-                        modal.style.display = "none";
-                    };
-
-                    // Cerrar el modal al hacer clic fuera de él
-                    window.onclick = function (event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    };
+                    window.onload = function () {
+                        document.getElementById('email').value = '@micorreo.upp.edu.mx';
+                    }
                 }
             }
 </script>

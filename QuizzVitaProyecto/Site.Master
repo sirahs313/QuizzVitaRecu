@@ -243,7 +243,7 @@
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
 
-                    <img src="/Principal/img/menu.png" id="menu"
+                    <img src="/Principal/img/menu.png""
                         class="navbar-toggler"
                         type="button"
                         data-bs-toggle="offcanvas"
@@ -485,9 +485,7 @@
             }
         };
     });
-    window.onload = function () {
-        document.getElementById('email').value = '@micorreo.upp.edu.mx';
-    }
+    
 
 
 </script>
