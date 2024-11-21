@@ -215,8 +215,50 @@
             width: 46px;
             height: 46px;
         }
-        
-        
+
+        /*-----PRUEBA-----*/
+
+        /* Contenedor principal */
+        .profile-container {
+            position: relative;
+            /*display: inline-block;*/
+        }
+
+        /* Imagen del perfil */
+        .profile-image {
+            width: 50px; /* Ajusta al tamaño que desees */
+            height: auto;
+        }
+
+        /* Menú desplegable oculto */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 120%; /* Ajusta según el tamaño de la imagen */
+            right: 0;
+            background-color: #A4ECD2;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        /* Botón de cerrar sesión */
+        .logout-button {
+            color: #A4ECD2;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #252C2A;
+            transition: background-color 0.3s;
+        }
+
+            .logout-button:hover {
+                background-color: #e2e2e2;
+                color:black;
+            }
 
     </style>
 </head>
@@ -243,6 +285,30 @@
                         <asp:Image ID="Image2" runat="server" ImageUrl="/Principal/img/login.png" />
                     </a>
 
+                    <%--<asp:Label ID="lblUserName" runat="server" Visible="false"></asp:Label>--%>
+
+                     <!-- BOTON CERRAR SESION -->
+                    <div class="profile-container">
+                        <!-- Imagen del perfil o icono -->
+                        <asp:Image ID="Image4" runat="server" ImageUrl="/Principal/img/login.png" alt="Perfil" class="profile-image" onclick="toggleDropdown()" Visible="false"/>
+                        
+                        <!-- Contenedor desplegable -->
+                        <div id="logout-dropdown" class="dropdown-content">
+                            <div style="text-align:center; margin-top:8%; margin-bottom:8%">
+                                <asp:Label ID="lblEmail" runat="server" Visible="false" CssClass="labelEmail"></asp:Label>
+                            </div>
+                            <div style="text-align:center">
+                                <asp:Image ID="Image3" runat="server" src="/Principal/img/login.png" />
+                            </div>
+                            <div style="text-align:center; margin-top:8%; margin-bottom:8%">
+                                <asp:Label ID="lblUserName" runat="server" Visible="false" CssClass="labelUserName">></asp:Label>
+                            </div>
+                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="lnkLogout_Click" class="logout-button">
+                                Cerrar sesión
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+
                     <img src="/Principal/img/menu.png""
                         class="navbar-toggler"
                         type="button"
@@ -255,13 +321,10 @@
                     
                                         <div class="d-flex">
 
-    <asp:Label ID="lblUserName" runat="server" Visible="false"></asp:Label>
+    
 
 </div>
 
-
-                    <!-- BOTON CERRAR SESION -->
-                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkLogout_Click">Cerrar sesión</asp:LinkButton>
 
                     <!-- Offcanvas para el menú desplegable -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="color: #A4ECD2; background-color: #252C2A; padding-left: 3%; padding-right: 3%;">
@@ -485,7 +548,20 @@
             }
         };
     });
-    
+
+    // Función para alternar la visibilidad del menú
+    function toggleDropdown() {
+        const dropdown = document.getElementById("logout-dropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Cerrar el menú cuando se haga clic fuera de él
+    window.onclick = function (event) {
+        const dropdown = document.getElementById("logout-dropdown");
+        if (dropdown && dropdown.style.display === "block" && !event.target.closest('#logout-dropdown') && !event.target.matches('.profile-image')) {
+            dropdown.style.display = "none";
+        }
+    };
 
 
 </script>

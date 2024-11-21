@@ -19,21 +19,33 @@ namespace QuizzVitaProyecto
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
-            
-
             if (Session["UserName"] != null)
-                {
-                    lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
-                    lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
-                LinkButton1.Visible = true;    // Hacer visible el LinkButton para cerrar sesión
-                }
-                else
-                {
-                    lblUserName.Visible = false; // Ocultar el label si no hay sesión
-                LinkButton1.Visible = false;    // Ocultar el LinkButton si no hay sesión
-                }
-            
+            {
+                
+                lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
+                lblEmail.Text = Session["Email"].ToString();
+                lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
+                lblEmail.Visible = true;
+                Image4.Visible = true; //Hace visible el boton para cerrar sesion
+            }
+            else
+            {
+                Image4.Visible = false; //Oculta el boton para cerrar sesion
+            }
+
+
+            //if (Session["UserName"] != null)
+            //    {
+            //        lblUserName.Text = "Bienvenido, " + Session["UserName"].ToString();
+            //        lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
+            //    LinkButton1.Visible = true;    // Hacer visible el LinkButton para cerrar sesión
+            //    }
+            //    else
+            //    {
+            //        lblUserName.Visible = false; // Ocultar el label si no hay sesión
+            //    LinkButton1.Visible = false;    // Ocultar el LinkButton si no hay sesión
+            //    }
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

@@ -11,15 +11,22 @@ namespace QuizzVitaProyecto.Principal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var imageLogout = (Image)Master.FindControl("Image4");
+            var imageLogin = (Image)Master.FindControl("Image2");
+
             if (!IsPostBack && Session["UserName"] != null)
             {
-             
-                lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
-
+                
+                if (imageLogin != null)
+                {
+                    imageLogin.Visible = false;
+                    imageLogout.Visible = true;
+                }
             }
             else
             {
-                lblUserName.Visible = false; // Ocultar si no hay sesión
+                imageLogin.Visible = true;
+                imageLogout.Visible = false;
             }
         }
 
