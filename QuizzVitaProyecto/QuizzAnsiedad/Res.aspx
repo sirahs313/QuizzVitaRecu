@@ -6,6 +6,75 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Resultados del Quizz de Ansiedad</title>
     <style>
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    z-index: 1000; /* Por encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #A6DFD0; /* Color de fondo similar a la imagen */
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    position: relative;
+    text-align: left;
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.modal-content p, .modal-content ul {
+    font-size: 1rem;
+    color: #333;
+}
+
+.modal-content ul {
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
+/* Estilo del botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -112,46 +181,84 @@
             font-weight: bold;
             transition: width 0.5s ease-in-out; 
         }
-
         .side-menu {
-            height: 100%; 
-            width: 0;
-            position: fixed;
-            z-index: 1; 
-            top: 0;
-            right: 0; 
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s; 
-            padding-top: 60px; 
-        }
+    height: 100%; 
+    width: 0;
+    position: fixed;
+    z-index: 1; 
+    top: 0;
+    right: 0; 
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s; 
+    padding-top: 60px; 
+}
 
-        .side-menu a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
 
-        .side-menu a:hover {
-            color: #f1f1f1;
-        }
+.side-menu a:hover {
+    color: #f1f1f1;
+}
 
-        .side-menu .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
+.side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
         .blurred {
             filter: blur(5px);
         }
     </style>
 </head>
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Acerca de su puntuación</h2>
+        <p>
+            Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
+        </p>
+        <ul>
+            <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
+        </ul>
+        <h3>Interpretación de su puntuación total</h3>
+        <ul>
+            <li>3.7%-14.8%: Ansiedad mínima</li>
+            <li>18.5%-33.3%: Ansiedad leve</li>
+            <li>37%-51.8%: Ansiedad moderada</li>
+            <li>55.6%-70.4%: Ansiedad moderadamente severa</li>
+            <li>74.1%-100%: Ansiedad severa</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="infoespecModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Consejos para manejar la Ansiedad</h2>
+        <h3>Practica la respiración profunda</h3>
+        <ul>
+            <li>Inhala lentamente por la nariz contando hasta cuatro, retén el aire por cuatro segundos y exhala por la boca contando hasta seis. </li>
+        </ul>
+        <h3>Establece una rutina diaria</h3>
+        <ul>
+            <li>Una estructura regular en tu día puede brindar estabilidad y reducir la incertidumbre que a menudo alimenta la ansiedad.</li>
+        </ul>
+        <h3>Cuestiona pensamientos negativos</h3>
+        <ul>
+            <li>Cuando sientas ansiedad, escribe los pensamientos que te preocupan y analiza su validez. Pregúntate si son racionales o si estás exagerando las posibilidades negativas.</li>
+        </ul>
+    </div>
+</div>
 <body>
     <form id="form1" runat="server">
         <div class="top-bar">
@@ -211,5 +318,53 @@
         document.getElementById("closeMenu").onclick = closeMenu;
         document.getElementById("openMenuButton").onclick = openMenu;
     </script>
+
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById("infoModal");
+
+        // Obtener el botón que abre el modal
+        var btn = document.querySelector(".buttons button"); // Suponiendo que el botón "Acerca de tus resultados" es el primero
+
+        // Obtener el elemento <span> que cierra el modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario haga clic en el botón, se muestra el modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // Cuando el usuario haga clic en <span> (x), se cierra el modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario haga clic fuera del modal, se cierra
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        var modal2 = document.getElementById("infoespecModal");
+        var buttons = document.querySelectorAll(".buttons button");
+        var btn = buttons[1];
+        var span = document.getElementsByClassName("close")[1];
+        btn.onclick = function () {
+            modal2.style.display = "block";
+        }
+        span.onclick = function () {
+            modal2.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+    </script>
+
+
 </body>
 </html>

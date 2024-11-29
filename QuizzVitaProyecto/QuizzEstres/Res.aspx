@@ -231,11 +231,11 @@
         </ul>
         <h3>Interpretación de su puntuación total</h3>
         <ul>
-            <li>3.7%-14.8%: Depresión mínima</li>
-            <li>18.5%-33.3%: Depresión leve</li>
-            <li>37%-51.8%: Depresión moderada</li>
-            <li>55.6%-70.4%: Depresión moderadamente severa</li>
-            <li>74.1%-100%: Depresión severa</li>
+            <li>3.7%-14.8%: Estrés mínima</li>
+            <li>18.5%-33.3%: Estrés leve</li>
+            <li>37%-51.8%: Estrés moderada</li>
+            <li>55.6%-70.4%: Estrés moderadamente severa</li>
+            <li>74.1%-100%: Estrés severa</li>
         </ul>
     </div>
 </div>
