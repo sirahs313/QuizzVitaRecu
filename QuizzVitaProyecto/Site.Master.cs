@@ -27,10 +27,12 @@ namespace QuizzVitaProyecto
                 lblUserName.Visible = true; // Hacer visible el label con el nombre de usuario
                 lblEmail.Visible = true;
                 Image4.Visible = true; //Hace visible el boton para cerrar sesion
+                Image2.Visible = false; //Oculta el boton para iniciar sesion
             }
             else
             {
                 Image4.Visible = false; //Oculta el boton para cerrar sesion
+                Image2.Visible = true; //Hace visible el boton para iniciar sesion
             }
 
 
