@@ -160,11 +160,9 @@
         <div class="resources">
             <h2>Recursos sobre la salud mental</h2>
             <div class="resource-buttons">
-                <a href="https://ayudaparadepresion.org.mx" target="_blank">Ayuda para la depresión</a>
-                <a href="https://www.mayoclinic.org/es/healthy-lifestyle/stress-management/in-depth/stress-relievers/art-20047257">Manejo de estres</a>
-                <a href="https://www.healthline.com/health/es/como-quitar-el-estres">Manejo de estres y ansiedad</a>
-                <a href="https://www.cigna.com/es-us/knowledge-center/hw/alivio-del-estrs-y-relajacin-af1003spec">Alivio estres</a>
-                <a href="https://www.gob.mx/salud/es/articulos/linea-de-la-vida-ayuda-profesional-para-personas-con-depresion?idiom=es">Ayuda depresión</a>
+                <a href="https://www.childrensmn.org/educationmaterials/teens/article/11776/cinco-formas-de-superar-la-depresion/" target="_blank">Formas de superar la depresión</a>
+                <a href="https://www.mayoclinic.org/es/healthy-lifestyle/stress-management/in-depth/stress-relievers/art-20047257" target="_blank">Métodos para aliviar el estrés</a>
+                <a href="https://www.healthline.com/health/es/como-quitar-el-estres" target="_blank">Aliviar el estrés y la ansiedad</a>
             </div>
         </div>
 
