@@ -1,5 +1,4 @@
-﻿
-    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo"  MasterPageFile="~/Site.Master"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo"  MasterPageFile="~/Site.Master"  %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     

@@ -17,6 +17,20 @@
 
     <!-- CSS personalizado -->
     <style>
+        @font-face {
+            font-family: 'Sarlotte';
+            src: url('Fuentes/Sarlotte.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'Mulish';
+            src: url('Fuentes/Mulish-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Coffee Spark';
+            src: url('Fuentes/Coffee Spark.ttf') format('truetype');
+        }
+
         body {
             font-family: 'Sarlotte', sans-serif;
             background-color: #FFF;
@@ -25,8 +39,7 @@
 
         .navbar {
             background-color: #A4ECD2;
-             height: 70px;
-
+            height: 70px;
         }
 
         .navbar-brand {
@@ -34,10 +47,11 @@
             font-size: 24px;
             color: black;
         }
-        .navbar-brand img{
-     width: 50px; /* Ajusta al tamaño que desees */
-    height: auto;
-}
+
+            .navbar-brand img {
+                width: 50px; /* Ajusta al tamaño que desees */
+                height: auto;
+            }
 
         .navbar-nav .nav-link {
             color: black;
@@ -257,9 +271,8 @@
 
             .logout-button:hover {
                 background-color: #e2e2e2;
-                color:black;
+                color: black;
             }
-
     </style>
 </head>
 <body>
