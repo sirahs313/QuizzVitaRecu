@@ -1,131 +1,36 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo"  MasterPageFile="~/Site.Master"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Informacionapoyo.aspx.cs" Inherits="QuizzVitaProyecto.Informacionapoyo" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
-   <style>
-    @media (max-width: 768px) {
-        .EllipseContainer {
-            display: none;
-        }
-    }
 
-    @font-face {
-        font-family: 'CoffeeSpark';
-        src: url('Fuentes/Coffee Spark.ttf');
-    }
-
-    @font-face {
-        font-family: 'Sarlotte';
-        src: url('Fuentes/Sarlotte.otf');
-    }
-
-    /*body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    .top-bar {
-        background-color: #a6dfd0;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-        .top-bar img {
-            width: 30px;
-            height: 30px;
-        }
-
-    .container {
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .logo {
-        width: 80px;
-        height: auto;
-        margin: 20px auto;
-    }
-
-    h1 {
-        font-family: 'Rokkitt', serif;
-        font-size: 2rem;
-        color: #4b0082;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .question {
-        text-align: left;
-        margin: 20px 0;
-    }
-
-    button {
-        background-color: #4b0082;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-        button:hover {
-            background-color: #6a0dad;
-        }
-
-    .side-menu {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-
-        .side-menu a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-            .side-menu a:hover {
-                color: #f1f1f1;
+    <style>
+        @media (max-width: 768px) {
+            .EllipseContainer {
+                display: none;
             }
-
-        .side-menu .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
         }
 
-    .blurred {
-        filter: blur(5px);
-    }*/
-/*   CAMBNIOS*/
+        @font-face {
+            font-family: 'CoffeeSpark';
+            src: url('Fuentes/Coffee Spark.ttf');
+        }
+
+        @font-face {
+            font-family: 'Sarlotte';
+            src: url('Fuentes/Sarlotte.otf');
+        }
+
+        @font-face {
+            font-family: 'Mulish';
+            src: url('Fuentes/Mulish-Regular.ttf') format('truetype');
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: Sarlotte, sans-serif;
             background-color: #F5F5F5;
             margin: 0;
             padding: 0;
         }
-        
+
         .header {
             background-color: #A2D5C6;
             padding: 10px;
@@ -134,10 +39,10 @@
             align-items: center;
         }
 
-        .header img {
-            width: 30px;
-            height: 30px;
-        }
+            .header img {
+                width: 30px;
+                height: 30px;
+            }
 
         .menu {
             font-size: 20px;
@@ -147,10 +52,10 @@
             padding: 20px;
         }
 
-        .main-content h1 {
-            text-align: center;
-            color: #333;
-        }
+            .main-content h1 {
+                text-align: center;
+                color: #333;
+            }
 
         .resources, .contacts {
             background-color: #E6FCF8;
@@ -161,9 +66,9 @@
             margin-right: 60px;
         }
 
-        .resources h2, .contacts h2 {
-            color: #333;
-        }
+            .resources h2, .contacts h2 {
+                color: #333;
+            }
 
         .resource-buttons {
             display: flex;
@@ -171,24 +76,27 @@
             margin-top: 10px;
         }
 
-        .resource-buttons a {
-            text-decoration: none;
-            color: white;
-            background-color: #A2D5C6;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            flex: 1;
-            margin: 5px;
-        }
+            .resource-buttons a {
+                text-decoration: none;
+                color: black;
+                background-color: #A2D5C6;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                flex: 1;
+                margin: 5px;
+                font-family: Mulish;
+            }
 
-        .resource-buttons a:hover {
-            background-color: #8EBDAE;
-        }
+                .resource-buttons a:hover {
+                    background-color: #8EBDAE;
+                }
+
         .contacts p {
             margin: 5px 0;
+            font-family: Mulish;
         }
 
         .footer {
@@ -201,48 +109,51 @@
             width: 100%;
         }
 
-        .footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+            .footer a {
+                color: white;
+                text-decoration: none;
+                margin: 0 10px;
+            }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+
         .side-menu {
-    height: 100%; 
-    width: 0;
-    position: fixed;
-    z-index: 1; 
-    top: 0;
-    right: 0; 
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s; 
-    padding-top: 60px; 
-}
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
 
-.side-menu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+            .side-menu a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
 
-.side-menu a:hover {
-    color: #f1f1f1;
-}
+                .side-menu a:hover {
+                    color: #f1f1f1;
+                }
 
-.side-menu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-</style>
+            .side-menu .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+    </style>
+
     <div class="main-content">
         <h1>Información de apoyo</h1>
 
@@ -273,6 +184,6 @@
             document.getElementById("sideMenu").style.width = "0";
         }
     </script>
-</body>
-   </asp:Content>
+    </body>
+</asp:Content>
 
