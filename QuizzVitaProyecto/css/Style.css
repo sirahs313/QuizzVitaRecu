@@ -54,7 +54,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-p {
+p, li {
     font-size: 15px;
     margin-bottom: 20px;
     font-family: Mulish;

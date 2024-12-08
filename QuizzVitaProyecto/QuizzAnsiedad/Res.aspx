@@ -5,109 +5,79 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Resultados del Quizz de Ansiedad</title>
+    <link rel="stylesheet" type="text/css" href="../css/Style.css" />
     <style>
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Posición fija en la pantalla */
-    z-index: 1000; /* Por encima del contenido */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-}
-
-.modal-content {
-    background-color: #A6DFD0; /* Color de fondo similar a la imagen */
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 15px; /* Bordes redondeados */
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    position: relative;
-    text-align: left;
-    font-family: 'Mulish', sans-serif;
-    line-height: 1.6;
-}
-
-.modal-content h2 {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.modal-content h3 {
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.modal-content p, .modal-content ul {
-    font-size: 1rem;
-    color: #333;
-}
-
-.modal-content ul {
-    padding-left: 20px;
-}
-
-.modal-content li {
-    margin-bottom: 10px;
-}
-
-/* Estilo del botón de cerrar */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #000;
-}
-
-
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
+        @font-face {
+            font-family: 'Mulish';
+            src: url('Fuentes/Mulish-Regular.ttf') format('truetype');
         }
 
-        .top-bar {
-            background-color: #a6dfd0;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija en la pantalla */
+            z-index: 1000; /* Por encima del contenido */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
         }
 
-        .top-bar img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .container {
+        .modal-content {
+            background-color: #A6DFD0; /* Color de fondo similar a la imagen */
+            margin: 5% auto;
             padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            position: relative;
+            text-align: left;
+            font-family: 'Mulish', sans-serif;
+            line-height: 1.6;
         }
 
-        h1 {
-            font-family: 'Rokkitt', serif;
-            font-size: 2rem;
-            color: #4b0082;
-            margin-bottom: 20px;
+            .modal-content h2 {
+                font-size: 1.5rem;
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.2rem;
+                color: #333;
+                font-weight: bold;
+                margin-top: 20px;
+            }
+
+            .modal-content p, .modal-content ul {
+                font-size: 1rem;
+                color: #333;
+            }
+
+            .modal-content ul {
+                padding-left: 20px;
+            }
+
+            .modal-content li {
+                margin-bottom: 10px;
+            }
+
+        /* Estilo del botón de cerrar */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
         }
+
+            .close:hover {
+                color: #000;
+            }
 
         .result-box {
             background-color: #e0f2f1;
@@ -117,41 +87,36 @@
             margin-bottom: 20px;
         }
 
-        .result-box p {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
+            .result-box p {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
 
-        .result-box h2 {
-            font-size: 1.8rem;
-            color: #4b0082;
-            margin: 10px 0;
-        }
+            .result-box h2 {
+                font-size: 1.8rem;
+                color: #4b0082;
+                margin: 10px 0;
+            }
 
         .buttons {
             display: flex;
             justify-content: space-around;
             margin-top: 20px;
+            font-family: Mulish;
         }
 
-        .buttons button {
-            background-color: #4b0082;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            .buttons button {
+                background-color: #A4ECD2;
+                color: black;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-        .buttons button:hover {
-            background-color: #6a0dad;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-top: 20px;
-            color: #333;
-        }
+                .buttons button:hover {
+                    background-color: rgba(239, 237, 237);
+                }
 
         footer {
             background-color: #f0f0f0;
@@ -163,59 +128,29 @@
         }
 
         .progress-bar {
-            background-color: #c8e6c9;
+            /*/background-color: #c8e6c9;*/
             height: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
-            width: 100%;  /* Asegura que la barra tenga un ancho máximo del 100% del contenedor */
+            width: 100%; /* Asegura que la barra tenga un ancho máximo del 100% del contenedor */
         }
 
         .progress {
             height: 100%;
-            background-color: #4caf50;
+            background-color: #98FF98;
             border-radius: 10px;
             text-align: right;
             padding-right: 10px;
-            color: white;
+            color: black;
             font-weight: bold;
-            transition: width 0.5s ease-in-out; 
+            transition: width 0.5s ease-in-out;
         }
-        .side-menu {
-    height: 100%; 
-    width: 0;
-    position: fixed;
-    z-index: 1; 
-    top: 0;
-    right: 0; 
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s; 
-    padding-top: 60px; 
-}
 
-.side-menu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.side-menu a:hover {
-    color: #f1f1f1;
-}
-
-.side-menu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-        .blurred {
-            filter: blur(5px);
+        h2, h3 {
+            font-family: Sarlotte;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -261,17 +196,25 @@
 </div>
 <body>
     <form id="form1" runat="server">
+        <!-- Barra Superior -->
         <div class="top-bar">
-            <img src="/Principal/img/inicio.png" alt="Home" />
-            <img src="/Principal/img/menu.png" alt="Menu" id="menuButton" />
+            <a href="/Principal/home.aspx">
+                <img src="/Principal/img/inicio.png" alt="Inicio" />
+            </a>
+            <img src="/Principal/img/menu.png" alt="Menú" id="menuButton" />
+        </div>
 
-            <!-- Menú lateral -->
-            <div id="sideMenu" class="side-menu">
-                <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-                <h1>Quizzes</h1>
-                <a href="/QuizzDepresion/WebForm1.aspx">Depresión</a>
-                <a href="/QuizzAnsiedad/QAnsiedad.aspx">Ansiedad</a>
-                <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+        <!-- Menú lateral -->
+        <div id="sideMenu" class="side-menu">
+            <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+            <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
+                <h5>Quizzes</h5>
+            </div>
+            <br />
+            <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
+            <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
+            <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+            <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
                 <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
             </div>
         </div>
@@ -280,11 +223,11 @@
             <h1>¡Aquí están tus resultados!</h1>
             <div class="result-box">
                 <p>Tu diagnóstico actual es:</p>
-                <h2 style="color: #4b0082;"><%= Request.QueryString["diagnosis"] %></h2>
+                <h2 style="color: #000;"><%= Request.QueryString["diagnosis"] %></h2>
 
                 <!-- Barra de progreso -->
                 <div class="progress-bar">
-                    <div class="progress" style="width:<%= (Convert.ToInt32(Request.QueryString["score"]) * 100 / 30) %>%;">
+                    <div class="progress" style="width: <%= (Convert.ToInt32(Request.QueryString["score"]) * 100 / 30) %>%;">
                         <%= Request.QueryString["score"] %>/30
                     </div>
                 </div>
@@ -303,7 +246,7 @@
     <script>
 
         function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
+            document.getElementById("sideMenu").style.width = "375px";
             document.getElementById("contentContainer").classList.add("blurred");
         }
 
