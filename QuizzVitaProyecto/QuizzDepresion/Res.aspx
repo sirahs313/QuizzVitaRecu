@@ -219,22 +219,34 @@
                         <button type="button">Acerca de tus resultados</button>
                         <button type="button">Consejos para manejar tu depresión</button>
                         <button type="button" onclick="location.href='respuestasDepresion.aspx';">Tus respuestas</button>
-                        <button type="button" id="openMenuButton">Realizar otro quizz</button>
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">Realizar otro quizz</button>
+
+
                     </div>
                 </div>
             </div>
         </form>
         <script>
             function openMenu() {
-                document.getElementById("sideMenu").style.width = "375px";
-                document.getElementById("contentContainer").classList.add("blurred");
+                var sideMenu = document.getElementById("sideMenu");
+                if (sideMenu) {
+                    sideMenu.style.width = "375px"; // Ajusta el ancho según tu diseño
+                    document.getElementById("contentContainer").classList.add("blurred");
+                } else {
+                    console.error("El menú lateral no está disponible.");
+                }
             }
-
 
             function closeMenu() {
-                document.getElementById("sideMenu").style.width = "0";
-                document.getElementById("contentContainer").classList.remove("blurred");
+                var sideMenu = document.getElementById("sideMenu");
+                if (sideMenu) {
+                    sideMenu.style.width = "0";
+                    document.getElementById("contentContainer").classList.remove("blurred");
+                } else {
+                    console.error("El menú lateral no está disponible.");
+                }
             }
+
 
 
             document.getElementById("menuButton").onclick = openMenu;

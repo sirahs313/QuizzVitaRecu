@@ -237,7 +237,7 @@
                     <button type="button">Acerca de tus resultados</button>
                     <button type="button">Consejos para manejar tu ansiedad</button>
                     <button type="button" onclick="location.href='respuestasAnsiedad.aspx';">Tus respuestas</button>
-                    <button type="button" id="openMenuButton">Realizar otro quizz</button>
+                    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">Realizar otro quizz</button>
                 </div>
             </div>
         </div>
