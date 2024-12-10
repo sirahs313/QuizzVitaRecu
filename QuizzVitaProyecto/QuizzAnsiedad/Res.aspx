@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzAnsiedad.Res" %>
 
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -209,22 +210,23 @@
                 <img src="/Principal/img/inicio.png" alt="Inicio" />
             </a>
             <img src="/Principal/img/menu.png" alt="Menú" id="menuButton" />
-        </div>
 
-        <!-- Menú lateral -->
-        <div id="sideMenu" class="side-menu">
-            <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
-            <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
-                <h5>Quizzes</h5>
-            </div>
-            <br />
-            <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
-            <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
-            <a href="/QuizzEstres/Estres.aspx">Estrés</a>
-            <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
-                <a href="/Informacionapoyo.aspx">Informacion de apoyo</a>
-            </div>
         </div>
+            <!-- Menú lateral -->
+            <div id="sideMenu" class="side-menu">
+                <a href="javascript:void(0)" class="closebtn" id="closeMenu">&times;</a>
+                <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
+                    <h5>Quizzes</h5>
+                </div>
+                <br />
+                <a href="/QuizzDepresion/Depresion.aspx">Depresión</a>
+                <a href="/QuizzAnsiedad/QuizzAnsiedad.aspx">Ansiedad</a>
+                <a href="/QuizzEstres/Estres.aspx">Estrés</a>
+                <div style="margin-top: 10%; padding-top: 8%; padding-bottom: 8%; text-align: center; border-bottom: 1px solid #A4ECD2; border-top: 1px solid #A4ECD2; margin-left: 3%; margin-right: 3%;">
+                    <a href="/Informacionapoyo.aspx">Información de apoyo</a>
+                </div>
+            </div>
+
 
         <div class="container" id="contentContainer">
             <h1>¡Aquí están tus resultados!</h1>
@@ -244,7 +246,10 @@
                     <button type="button">Acerca de tus resultados</button>
                     <button type="button">Consejos para manejar tu ansiedad</button>
                     <button type="button" onclick="location.href='respuestasAnsiedad.aspx';">Tus respuestas</button>
-                    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">Realizar otro quizz</button>
+                    <button type="button" id="openMenuButton">Realizar otro quizz</button>
+
+                    
+
                 </div>
             </div>
         </div>
@@ -252,23 +257,34 @@
 
     <script>
 
-        function openMenu() {
+        document.getElementById("openMenuButton").onclick = function () {
             document.getElementById("sideMenu").style.width = "375px";
             document.getElementById("contentContainer").classList.add("blurred");
-        }
+        };
 
-
-        function closeMenu() {
+        document.getElementById("closeMenu").onclick = function () {
             document.getElementById("sideMenu").style.width = "0";
             document.getElementById("contentContainer").classList.remove("blurred");
-        }
-
+        };
 
         document.getElementById("menuButton").onclick = openMenu;
         document.getElementById("closeMenu").onclick = closeMenu;
         document.getElementById("openMenuButton").onclick = openMenu;
     </script>
 
+    <script>
+        document.getElementById("menuButton").onclick = function () {
+            document.getElementById("sideMenu").style.width = "375px"; // Abre el menú lateral
+            document.getElementById("contentContainer").classList.add("blurred"); // Añade un efecto visual opcional
+        };
+
+        // Cerrar el menú al hacer clic en el botón de cerrar
+        document.getElementById("closeMenu").onclick = function () {
+            document.getElementById("sideMenu").style.width = "0"; // Cierra el menú lateral
+            document.getElementById("contentContainer").classList.remove("blurred"); // Quita el efecto visual
+        };
+
+    </script>
     <script>
         // Obtener el modal
         var modal = document.getElementById("infoModal");
