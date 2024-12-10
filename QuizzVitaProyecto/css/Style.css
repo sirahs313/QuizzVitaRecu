@@ -104,11 +104,20 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-    button:hover {
+     button:hover {
         background-color: rgba(239, 237, 237);
-    }
+        color: black;
+        transform: scale(1.05);
+     }
+
+     button:active {
+        transform: scale(0.95);
+        box-shadow: none;
+     }
 
 /* Menú lateral */
 .side-menu {
@@ -166,3 +175,5 @@ button {
     filter: blur(5px);
     transition: 0.3s ease;
 }
+
+

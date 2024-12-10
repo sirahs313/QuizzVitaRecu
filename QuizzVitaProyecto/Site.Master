@@ -26,6 +26,7 @@
             font-family: 'Mulish';
             src: url('Fuentes/Mulish-Regular.ttf') format('truetype');
         }
+
         @font-face {
             font-family: 'Coffee Spark';
             src: url('Fuentes/Coffee Spark.ttf') format('truetype');
@@ -272,7 +273,11 @@
             .logout-button:hover {
                 background-color: #e2e2e2;
                 color: black;
-            }
+                   }
+
+                .btns button:hover {
+                    background-color: rgba(239, 237, 237);
+                }
     </style>
 </head>
 <body>

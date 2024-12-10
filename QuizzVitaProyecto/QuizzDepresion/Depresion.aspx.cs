@@ -47,15 +47,15 @@ namespace QuizzVitaProyecto.QuizzDepresion
             string diagnosis = "";
             if (totalScore <= 10)
             {
-                diagnosis = "Depresion Baja";
+                diagnosis = "Depresión Baja";
             }
             else if (totalScore <= 20)
             {
-                diagnosis = "Depresion Moderada";
+                diagnosis = "Depresión Moderada";
             }
             else
             {
-                diagnosis = "Depresion Severa";
+                diagnosis = "Depresión Severa";
             }
             // Obtener el ID del usuario desde la sesión
             int userId = (int)Session["UserID"];  

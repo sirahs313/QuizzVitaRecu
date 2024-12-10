@@ -49,15 +49,15 @@ namespace QuizzVitaProyecto
             string diagnosis = "";
             if (totalScore <= 10) // Ajusta estos valores según la cantidad de preguntas
             {
-                diagnosis = "Estres Bajo";
+                diagnosis = "Estrés Bajo";
             }
             else if (totalScore <= 20)
             {
-                diagnosis = "Estres Moderado";
+                diagnosis = "Estrés Moderado";
             }
             else
             {
-                diagnosis = "Estres Severo";
+                diagnosis = "Estrés Severo";
             }
             // Obtener el ID del usuario desde la sesión
             int userId = (int)Session["UserID"];  

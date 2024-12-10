@@ -54,15 +54,15 @@
                     </div>
                     <div>
                         <input type="radio" id="q1_op2" name="q1" value="1" />
-                        <label for="q1_op2">Varios días</label>
+                        <label for="q1_op2">Rara vez</label>
                     </div>
                     <div>
                         <input type="radio" id="q1_op3" name="q1" value="2" />
-                        <label for="q1_op3">Más de la mitad de los días</label>
+                        <label for="q1_op3">Algunas veces</label>
                     </div>
                     <div>
                         <input type="radio" id="q1_op4" name="q1" value="3" />
-                        <label for="q1_op4">Casi todos los días</label>
+                        <label for="q1_op4">Muy frecuentementes</label>
                     </div>
                 </div>
 

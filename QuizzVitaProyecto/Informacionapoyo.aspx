@@ -72,26 +72,34 @@
 
         .resource-buttons {
             display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
+            justify-content: center; 
+            gap: 15px; 
+            margin-top: 20px;
+            font-family: Mulish, sans-serif;
         }
 
             .resource-buttons a {
-                text-decoration: none;
+                background-color: #A4ECD2; 
                 color: black;
-                background-color: #A2D5C6;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                text-align: center;
-                cursor: pointer;
-                flex: 1;
-                margin: 5px;
-                font-family: Mulish;
+                padding: 12px 25px; 
+                border-radius: 10px; 
+                font-size: 1rem; 
+                cursor: pointer; 
+                transition: all 0.3s ease; 
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+                text-decoration: none;
             }
 
                 .resource-buttons a:hover {
-                    background-color: #8EBDAE;
+                    background-color: rgba(239, 237, 237);
+                    color: black;
+                    transform: scale(1.05); 
+                    text-decoration: none;
+                }
+                .resource-buttons a:active {
+                      transform: scale(0.95); 
+                      box-shadow: none;
+                      text-decoration: none;
                 }
 
         .contacts p {

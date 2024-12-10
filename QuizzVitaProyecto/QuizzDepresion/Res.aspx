@@ -1,10 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzDepresion.Res" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <!DOCTYPE html>
-
-    <html xmlns="http://www.w3.org/1999/xhtml">
- 
+    
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Resultados del Quizz de Depresión</title>
         <link rel="stylesheet" type="text/css" href="../css/Style.css" />
@@ -85,7 +82,6 @@
                 background-color: #e0f2f1;
                 padding: 20px;
                 border-radius: 10px;
-                border: 2px solid #4b0082;
                 margin-bottom: 20px;
             }
 
@@ -99,35 +95,6 @@
                     color: #4b0082;
                     margin: 10px 0;
                 }
-
-            .buttons {
-                display: flex;
-                justify-content: space-around;
-                margin-top: 20px;
-                font-family: Mulish;
-            }
-
-                .buttons button {
-                    background-color: #A4ECD2;
-                    color: black;
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-
-                    .buttons button:hover {
-                        background-color: rgba(239, 237, 237);
-                    }
-
-            footer {
-                background-color: #f0f0f0;
-                padding: 10px;
-                text-align: center;
-                font-size: 0.9rem;
-                color: #666;
-                margin-top: 20px;
-            }
 
             .progress-bar {
                 /*/background-color: #c8e6c9;*/
@@ -154,25 +121,61 @@
                 font-size: 2rem;
                 margin-bottom: 20px;
             }
+
+             /* Clase principal para los botones */
+            .buttons {
+                display: flex;
+                justify-content: center; 
+                gap: 15px; 
+                margin-top: 20px;
+                font-family: Mulish, sans-serif; 
+            }
+
+            /* Estilo individual para los botones */
+            .buttons button {
+                background-color: #A4ECD2; 
+                color: black;
+                padding: 12px 25px; 
+                border-radius: 10px; 
+                font-size: 0.8rem; 
+                cursor: pointer; 
+                transition: all 0.3s ease; 
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+            }
+
+            /* Efecto al pasar el mouse */
+            .buttons button:hover {
+                background-color: rgba(239, 237, 237);
+                color: black;
+                transform: scale(1.05); 
+            }
+
+            /* Efecto al presionar el botón */
+            .buttons button:active {
+                transform: scale(0.95); 
+                box-shadow: none;
+            }
         </style>
-    </head>
+    
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Acerca de su puntuación</h2>
-            <p>
+            <p style="text-align: justify";>
                 Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
             </p>
             <ul>
-                <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
+                <br />
+               <li style="text-align: justify">Nunca = 0</li>
+                <li style="text-align: justify">Rara vez = 1</li>
+                <li style="text-align: justify">Algunas veces = 2</li>
+                <li style="text-align: justify">Muy frecuentemente = 3</li>
             </ul>
             <h3>Interpretación de su puntuación total</h3>
             <ul>
-                <li>3.7%-14.8%: Depresión mínima</li>
-                <li>18.5%-33.3%: Depresión leve</li>
-                <li>37%-51.8%: Depresión moderada</li>
-                <li>55.6%-70.4%: Depresión moderadamente severa</li>
-                <li>74.1%-100%: Depresión severa</li>
+                <li style="text-align: justify";>0-10 Puntos: Depresión Baja</li>
+                <li style="text-align: justify";>11-20 Puntos: Depresión Moderada</li>
+                <li style="text-align: justify";>21-30 Puntos: Depresión Severa</li>
             </ul>
         </div>
     </div>
@@ -184,15 +187,15 @@
             <h2>Consejos para manejar la depresión</h2>
             <h3>Habar con alguien de confianza</h3>
             <ul>
-                <li>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
+                <li style="text-align: justify";>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
             </ul>
             <h3>Manten una rutina diaria</h3>
             <ul>
-                <li>Establecer y seguir una rutina puede proporcionar estructura y normalidad, lo cual es crucial para manejar la depresión.</li>
+                <li style="text-align: justify";>Establecer y seguir una rutina puede proporcionar estructura y normalidad, lo cual es crucial para manejar la depresión.</li>
             </ul>
             <h3>Realiza actividad fisica</h3>
             <ul>
-                <li>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
+                <li style="text-align: justify";>Compartir tus sentimientos con amigos, familiares o un profesional puede aliviar la carga emocional y ayudarte a sentirte comprendido y apoyado.</li>
             </ul>
         </div>
     </div>
@@ -304,5 +307,4 @@
 
     </body>
 
-    </html>
 </asp:Content>

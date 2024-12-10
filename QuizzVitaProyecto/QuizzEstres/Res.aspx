@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Res.aspx.cs" Inherits="QuizzVitaProyecto.QuizzEstres.Res" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <!DOCTYPE html>
-
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    
     
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Resultados del Quizz de Estrés</title>
@@ -85,7 +83,6 @@
                 background-color: #e0f2f1;
                 padding: 20px;
                 border-radius: 10px;
-                border: 2px solid #4b0082;
                 margin-bottom: 20px;
             }
 
@@ -100,25 +97,7 @@
                     margin: 10px 0;
                 }
 
-            .buttons {
-                display: flex;
-                justify-content: space-around;
-                margin-top: 20px;
-                font-family: Mulish;
-            }
-
-                .buttons button {
-                    background-color: #A4ECD2;
-                    color: black;
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-
-                    .buttons button:hover {
-                        background-color: rgba(239, 237, 237);
-                    }
+           
 
             footer {
                 background-color: #f0f0f0;
@@ -154,25 +133,62 @@
                 font-size: 2rem;
                 margin-bottom: 20px;
             }
+
+             /* Clase principal para los botones */
+            .buttons {
+                display: flex;
+                justify-content: center; 
+                gap: 15px; 
+                margin-top: 20px;
+                font-family: Mulish, sans-serif; 
+            }
+
+            /* Estilo individual para los botones */
+            .buttons button {
+                background-color: #A4ECD2; 
+                color: black;
+                padding: 12px 25px; 
+                border-radius: 10px; 
+                font-size: 0.8rem; 
+                cursor: pointer; 
+                transition: all 0.3s ease; 
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+            }
+
+            /* Efecto al pasar el mouse */
+            .buttons button:hover {
+                background-color: rgba(239, 237, 237);
+                color: black;
+                transform: scale(1.05); 
+            }
+
+            /* Efecto al presionar el botón */
+            .buttons button:active {
+                transform: scale(0.95); 
+                box-shadow: none;
+            }
+
         </style>
-    </head>
+ 
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Acerca de su puntuación</h2>
-            <p>
+            <p style="text-align: justify";>
                 Cada una de tus respuestas tiene una puntuación de 0 a 3. Haz clic en “Tus respuestas” para ver tu puntuación para cada pregunta. Al sumarlas y sacar un porcentaje, obtendrás tu puntuación total.
             </p>
             <ul>
-                <li>Nunca = 0; Pocas veces = 1; A menudo = 2; Casi todos los días = 3</li>
+                <br />
+                <li style="text-align: justify">Nunca = 0</li>
+                <li style="text-align: justify">Rara vez = 1</li>
+                <li style="text-align: justify">Algunas veces = 2</li>
+                <li style="text-align: justify">Muy frecuentemente = 3</li>
             </ul>
             <h3>Interpretación de su puntuación total</h3>
             <ul>
-                <li>3.7%-14.8%: Estrés mínima</li>
-                <li>18.5%-33.3%: Estrés leve</li>
-                <li>37%-51.8%: Estrés moderada</li>
-                <li>55.6%-70.4%: Estrés moderadamente severa</li>
-                <li>74.1%-100%: Estrés severa</li>
+                <li style="text-align: justify";>0-10 Puntos: Estrés Bajo</li>
+                <li style="text-align: justify";>11-20 Puntos: Estrés Moderado</li>
+                <li style="text-align: justify";>21-10 Puntos: Estrés Severo</li>
             </ul>
         </div>
     </div>
@@ -182,15 +198,15 @@
             <h2>Consejos para manejar el Estrés</h2>
             <h3>Practica la respiración profunda:</h3>
             <ul>
-                <li>Al centrarte en tu respiración, puedes reducir el ritmo cardíaco y promover un estado de calma. Intenta inhalar lentamente durante cuatro segundos, retener la respiración durante cuatro, y exhalar durante otros cuatro.</li>
+                <li style="text-align: justify";>Al centrarte en tu respiración, puedes reducir el ritmo cardíaco y promover un estado de calma. Intenta inhalar lentamente durante cuatro segundos, retener la respiración durante cuatro, y exhalar durante otros cuatro.</li>
             </ul>
             <h3>Ejercicio físico regular:</h3>
             <ul>
-                <li>El ejercicio libera endorfinas, que son sustancias químicas en el cerebro que actúan como analgésicos naturales y mejoran el estado de ánimo.</li>
+                <li style="text-align: justify";>El ejercicio libera endorfinas, que son sustancias químicas en el cerebro que actúan como analgésicos naturales y mejoran el estado de ánimo.</li>
             </ul>
             <h3>Técnicas de mindfulness:</h3>
             <ul>
-                <li>La atención plena o "mindfulness" te ayuda a vivir el momento presente sin preocuparte por el futuro o arrepentirte del pasado. Dedicar unos minutos diarios a meditar o a hacer actividades conscientes, como caminar o comer.</li>
+                <li style="text-align: justify";>La atención plena o "mindfulness" te ayuda a vivir el momento presente sin preocuparte por el futuro o arrepentirte del pasado. Dedicar unos minutos diarios a meditar o a hacer actividades conscientes, como caminar o comer.</li>
             </ul>
         </div>
     </div>
@@ -213,7 +229,7 @@
                     </div>
 
                     <!-- Botones para más acciones -->
-                    <div class="buttons">
+                    <div class="buttons" style="width: 100%">
                         <button type="button">Acerca de tus resultados</button>
                         <button type="button">Consejos para manejar el estrés</button>
                         <button type="button" onclick="location.href='respuestasEstres.aspx';">Tus respuestas</button>
@@ -288,6 +304,6 @@
 
         </script>
     </body>
-    </html>
+    
 
 </asp:Content>
