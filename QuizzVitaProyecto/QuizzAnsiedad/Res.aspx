@@ -203,6 +203,7 @@
                 <img src="/Principal/img/inicio.png" alt="Inicio" />
             </a>
             <img src="/Principal/img/menu.png" alt="Menú" id="menuButton" />
+
         </div>
             <!-- Menú lateral -->
             <div id="sideMenu" class="side-menu">
@@ -264,6 +265,19 @@
         document.getElementById("openMenuButton").onclick = openMenu;
     </script>
 
+    <script>
+        document.getElementById("menuButton").onclick = function () {
+            document.getElementById("sideMenu").style.width = "375px"; // Abre el menú lateral
+            document.getElementById("contentContainer").classList.add("blurred"); // Añade un efecto visual opcional
+        };
+
+        // Cerrar el menú al hacer clic en el botón de cerrar
+        document.getElementById("closeMenu").onclick = function () {
+            document.getElementById("sideMenu").style.width = "0"; // Cierra el menú lateral
+            document.getElementById("contentContainer").classList.remove("blurred"); // Quita el efecto visual
+        };
+
+    </script>
     <script>
         // Obtener el modal
         var modal = document.getElementById("infoModal");
